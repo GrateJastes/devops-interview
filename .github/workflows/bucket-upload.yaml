@@ -1,5 +1,5 @@
 name: GCP Bucket Deploy
-on: workflow_dispatch       # set the triggers to your liking
+on: push       # set the triggers to your liking
 #   push:
 #     branches: [ main ]
 
@@ -8,7 +8,8 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - id: 'deploy'
-        uses: bitovi/github-actions-gcp-bucket
+        name: 'deploy-to-gcp-bucket'
+        uses: actions/bitovi/github-actions-gcp-bucket
         with:
           gcp_access_key: ${{ secrets.GOOGLE_CREDENTIALS }}
           bucket_name: ${{ vars.BUCKET_NAME }}
