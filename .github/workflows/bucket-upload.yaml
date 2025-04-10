@@ -9,7 +9,7 @@ jobs:
     steps:
       - id: 'deploy'
         name: 'deploy-to-gcp-bucket'
-        uses: actions/bitovi/github-actions-gcp-bucket
+        uses: bitovi/github-actions-gcp-bucket@main
         with:
           gcp_access_key: ${{ secrets.GOOGLE_CREDENTIALS }}
           bucket_name: ${{ vars.BUCKET_NAME }}
